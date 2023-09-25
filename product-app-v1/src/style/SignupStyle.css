@@ -1,0 +1,42 @@
+/* SignupStyle.css */
+
+/* Container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  /* Form Container (sol tarafta) */
+  .formContainer {
+    width: 45%;
+  }
+  
+  /* Input Fields (sol tarafta) */
+  .inputField {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  /* Password Field (sol tarafta) */
+  .passwordField {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Submit Button (sol tarafta) */
+  .submitButton {
+    width: 100%;
+  }
+  
+  /* Image Container (sağ tarafta) */
+  .imageContainer {
+    width: 45%;
+  }
+  
+  /* Image (sağ tarafta) */
+  .image {
+    width: 100%;
+  }
+  

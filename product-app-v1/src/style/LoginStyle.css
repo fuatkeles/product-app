@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ortaya hizala */
+    width: 45%; /* %50 genişlik */
+    margin-right: 10%; /* Sağdan boşluk */
+    margin-left: 10%;
+    padding: 15px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border-radius: 10px;
+  }
+  
+  .inputField {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .passwordField {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  .submitButton {
+    width: 40%; /* Örneğin %30 genişlik */
+    margin: 0 auto; /* Yatayda ortala */
+    display: block; /* Yatayda tam ortalamak için display: block ekleyin */
+  }
+  
+  
+  .imageContainer {
+    width: 80%; /* %50 genişlik */
+    height: 94vh;
+    background-color: rgb(239, 227, 250);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image {
+    width: 100%; /* Resmin genişliği */
+  }
+  .signupText {
+    margin-top: 3%; /* İstenilen margin top değeri */
+    text-align: center; /* Metni ortala */
+    cursor: pointer; /* İmleci el işareti şeklinde yap */
+  }
