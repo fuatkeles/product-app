@@ -27,7 +27,7 @@ import { DeleteOutline, Edit } from '@mui/icons-material';
 import IconButton from '@mui/material/IconButton';
 
 
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
 
 function createData(productName, category, retailer, stock, price, date) {
   return { productName, category, retailer, stock, price, date };
@@ -162,14 +162,41 @@ const Products = () => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  const handleEdit = (rowData) => {
-    // Edit işlemi için rowData'yu kullanabilirsiniz
-    console.log('Edit:', rowData);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const handleEdit = (row) => {
+    // Bu satırın bilgilerini forma doldur
+    setProductName(row.productName);
+    setCategory(row.category);
+    setRetailer(row.retailer);
+    setStock(row.stock);
+    setPrice(row.price);
+    setDate(row.date);
+    setModalOpen(true); // Modalı aç
   };
   
-  const handleDelete = (productId) => {
-    // Silme işlemi için productId'yi kullanabilirsiniz
-    console.log('Delete:', productId);
+  const handleDelete = async (productId) => {
+    // Firestore'dan silme işlemi
+    try {
+      await deleteProductFromFirestore(productId);
+  
+      // Tablodan silme işlemi
+      const updatedData = data.filter((item) => item.id !== productId);
+      setData(updatedData);
+    } catch (error) {
+      console.error('Hata: Ürün silinirken bir hata oluştu', error);
+    }
+  };
+  
+  const deleteProductFromFirestore = async (productId) => {
+    const productDocRef = doc(db, 'products', productId);
+  
+    try {
+      await deleteDoc(productDocRef);
+      console.log('Product deleted successfully from Firestore.');
+    } catch (error) {
+      console.error('Error deleting product from Firestore:', error);
+    }
   };
 
   return (
@@ -217,13 +244,13 @@ const Products = () => {
                   <TableCell align="right">{row.price}</TableCell>
                   <TableCell>{row.date}</TableCell>
                   <TableCell align="right">
-  <IconButton aria-label="Edit" onClick={() => handleEdit(row)}>
-    <Edit />
-  </IconButton>
-  <IconButton aria-label="Delete" onClick={() => handleDelete(row.id)}>
-    <DeleteOutline />
-  </IconButton>
-</TableCell>
+                  <IconButton aria-label="Edit" onClick={() => handleEdit(row)}>
+                    <Edit />
+                  </IconButton>
+                  <IconButton aria-label="Delete" onClick={() => handleDelete(row.id)}>
+                    <DeleteOutline />
+                  </IconButton>
+                </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -306,10 +333,22 @@ const Products = () => {
       </Button>
           </Box>
         </Modal>
+        
       </div>
     </div>
   );
+  const handleProductFieldChange = (field, value) => {
+    setSelectedProduct(prevProduct => ({
+      ...prevProduct,
+      [field]: value
+    }));
+  };
   
+  const handleUpdateProduct = () => {
+    // TODO: Firestore'daki ilgili ürünü güncelle
+    // Ardından modal'ı kapat ve tabloyu güncelle
+    handleModalClose();
+  };
 };
 
 export default Products;
