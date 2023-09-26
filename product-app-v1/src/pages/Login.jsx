@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import '../style/LoginStyle.css';
+import "../App.css"
 import loginImg from '../assets/Lovepik_com-402451703-login-smart.png';
 
 
@@ -55,7 +55,7 @@ const Login = () => {
           </Button>
         </form>
         <Typography className='signupText' variant="body2" gutterBottom onClick={handleSignupClick}>
-          Üye değilseniz Hemen Kaydolun
+          Don't have an account? Signup Now
         </Typography>
       </div>
       <div className="imageContainer">

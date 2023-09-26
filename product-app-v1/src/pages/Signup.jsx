@@ -6,8 +6,9 @@ import { auth, db } from '../../firebase';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import '../style/SignupStyle.css';
+import "../App.css"
 import loginImg from '../assets/Lovepik_com-402451703-login-smart.png';
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -38,12 +39,12 @@ const Signup = () => {
   };
 
   const handleLoginRedirect = () => {
-    navigate('/');
+    navigate('/login');
   };
 
   return (
-    <div className="container">
-      <div className="formContainer">
+    <div className="signupContainer">
+      <div className="signupFormContainer">
         <Typography variant="h4" gutterBottom>
           Sign Up
         </Typography>
@@ -55,7 +56,7 @@ const Signup = () => {
             onChange={(e) => setFirstName(e.target.value)}
             fullWidth
             margin="normal"
-            className="inputField"
+            className="signupInput"
           />
           <TextField
             label="Last Name"
@@ -64,7 +65,7 @@ const Signup = () => {
             onChange={(e) => setLastName(e.target.value)}
             fullWidth
             margin="normal"
-            className="inputField"
+            className="signupInput"
           />
           <TextField
             type="email"
@@ -74,7 +75,7 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             fullWidth
             margin="normal"
-            className="inputField"
+            className="signupInput"
           />
           <TextField
             type="password"
@@ -84,9 +85,9 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             fullWidth
             margin="normal"
-            className="inputField"
+            className="signupInput"
           />
-          <Button type="submit" variant="contained" color="primary" className="submitButton">
+          <Button type="submit" variant="contained" color="primary" className="signupButton">
             Signup
           </Button>
         </form>
@@ -94,7 +95,7 @@ const Signup = () => {
           Already have an account? Login
         </Typography>
       </div>
-      <div className="imageContainer">
+      <div className="signupimageContainer">
         <img src={loginImg} alt="Signup Image" className="image" />
       </div>
     </div>
