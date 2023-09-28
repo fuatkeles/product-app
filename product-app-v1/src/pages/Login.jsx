@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { signInWithEmailAndPassword } from 'firebase/auth'; 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import "../App.css"
+import "../App.css";
 import loginImg from '../assets/Lovepik_com-402451703-login-smart.png';
-
-
+import { auth } from '../../firebase';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -17,10 +17,21 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    navigate('/home');
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      if (user) {
+        navigate('/home');
+      } else {
+        console.error('User not found in the Firebase users table.');
+      }
+    } catch (error) {
+      console.error('Error signing in:', error);
+      
+    }
   };
 
   const handleSignupClick = () => {

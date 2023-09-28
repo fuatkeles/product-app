@@ -40,7 +40,7 @@ const Sidebar = () => {
     setOpen(!open);
   };
 
-  const drawerWidth = 270;
+  const drawerWidth = 215;
 
   const handleLinkedInClick = () => {
     window.open('https://www.linkedin.com/in/fuat-keles/'); 
