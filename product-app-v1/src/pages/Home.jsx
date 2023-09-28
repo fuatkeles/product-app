@@ -78,12 +78,12 @@ const Home = () => {
       <Sidebar />
       
       <div style={{ marginLeft: '15%', padding: '20px', marginTop:'3%', width:'20%' }}> 
-        <Card style={{boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px', borderRadius: '10px' }}>
+        <Card style={{boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px', borderRadius: '10px', minWidth:'200px', marginRight: '10vw' } }>
           <CardContent>
-            <Typography variant="h6" component="div">
+            <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', fontSize: '16px', marginTop:'3%'}}>
               Today's Date
             </Typography>
-            <Typography variant="h5" sx={{ fontWeight: 'bold', fontSize: '24px', color: 'rgb(186, 115, 252)', marginTop:'3%'}}>
+            <Typography variant="h5" sx={{ fontWeight: 'bold', fontSize: '16px', color: 'rgb(186, 115, 252)', marginTop:'3%'}}>
   {getCurrentDate()}
 </Typography>
 
@@ -98,7 +98,7 @@ const Home = () => {
           <Typography variant="h4" style={{  padding: '20px', textAlign: 'center' }}>
           Stock
       </Typography>
-          <BarChart className='bar' width={650} height={400} data={productData}>
+          <BarChart className='bar' width={650} height={400} data={productData} >
             
             <XAxis dataKey="productName" />
             <YAxis domain={[0, 200]} />

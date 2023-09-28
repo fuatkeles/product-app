@@ -15,6 +15,7 @@ import { capitalizeFirstLetter } from '../helpers';
 import fetchCategories from '../../fetchCategories'; // Import the fetchCategories function
 import CloseIcon from '@mui/icons-material/Close';
 
+
 const ProductForm = ({
   isEditing,
   handleAddProduct,
@@ -36,6 +37,22 @@ const ProductForm = ({
   handleModalClose,
 }) => {
 
+  const handleFormSubmit = () => {
+    // Check if any required field is empty
+    if (!productName || !selectedCategory || !retailer || !stock || !price || !date) {
+      alert('Please fill in all the required fields.');
+      return;
+    }
+  
+    // Call the appropriate action based on whether it's editing or adding
+    if (isEditing) {
+      handleUpdateProduct();
+    } else {
+      handleAddProduct();
+    }
+  };
+  
+
   return (
     <div>
         <Modal open={modalOpen} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
@@ -43,6 +60,7 @@ const ProductForm = ({
           <Typography variant="h4" gutterBottom>
           Add Product
         </Typography>
+       
             <TextField
               className='modalInput'
               label="Product Name"
@@ -50,6 +68,7 @@ const ProductForm = ({
               fullWidth
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
+              required
             />
         <FormControl variant="outlined" className='modalInput'>
           <InputLabel htmlFor="category-dropdown">Category</InputLabel>
@@ -62,6 +81,7 @@ const ProductForm = ({
               name: 'category',
               id: 'category-dropdown',
             }}
+            required
           >
             {fetchedCategories.map((category) => (
               <MenuItem key={category} value={category}>
@@ -77,6 +97,7 @@ const ProductForm = ({
               fullWidth
               value={retailer}
               onChange={(e) => setRetailer(e.target.value)}
+              required
             />
             <TextField
               className='modalInput'
@@ -86,6 +107,7 @@ const ProductForm = ({
               type="number"
               value={stock}
               onChange={(e) => setStock(e.target.value)}
+              required
             />
             <TextField
               className='modalInput'
@@ -95,6 +117,7 @@ const ProductForm = ({
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value) + ",00"}
+              required
             />
             <TextField
               className='modalInput'
@@ -104,20 +127,27 @@ const ProductForm = ({
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
+              required
             />
           <Button
-        variant="contained"
-        className='modalButton'
-        onClick={() => {
-          if (isEditing) {
-            handleUpdateProduct();
-          } else {
-            handleAddProduct();
-          }
-        }}
-      >
-        {isEditing ? 'Update' : 'Add'}
-      </Button>
+  variant="contained"
+  className='modalButton'
+  onClick={() => {
+    // Check if any required field is empty
+    if (!productName || !selectedCategory || !retailer || !stock || !price || !date) {
+      alert('Please fill in all the required fields.');
+      return;
+    }
+
+    if (isEditing) {
+      handleUpdateProduct();
+    } else {
+      handleAddProduct();
+    }
+  }}
+>
+  {isEditing ? 'Update' : 'Add'}
+</Button>
           </Box>
         </Modal>
     </div>

@@ -28,6 +28,9 @@ const formatPrice = (price) => {
     const numericPrice = parseFloat(price.replace(',', '.'));
     return numericPrice.toFixed(2).replace('.', ',');
   };
+  const compareNumeric = (a, b) => {
+    return a - b;
+  };
 
 const ProductTable = ({ data, handleEdit, handleDelete, handleRequestSort, order, orderBy, loading }) => {
   if (!data) {
@@ -49,36 +52,37 @@ const ProductTable = ({ data, handleEdit, handleDelete, handleRequestSort, order
   }
 
   
+  
   return (
     <TableContainer className='tableContainer' component={Paper} style={{ boxShadow: 'rgb(38, 57, 77) 0px 20px 30px -10px', borderRadius: '10px' }}>
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell padding="checkbox">
-            <Checkbox color="primary" inputProps={{ 'aria-label': 'select all desserts' }} />
-          </TableCell>
-          {headCells.map((headCell) => (
-            <TableCell
-              key={headCell.id}
-              align={headCell.id === 'price' ? 'right' : 'left'}
-              style={{ paddingRight: headCell.id === 'price' ? '24px' : '12px' }} 
-              sortDirection={orderBy === headCell.id ? order : false}
-              className="tableHeader"  
-            >
-              <TableSortLabel
-                active={orderBy === headCell.id}
-                direction={orderBy === headCell.id ? order : 'asc'}
-                onClick={() => handleRequestSort(headCell.id)}
-              >
-                <span className="headerText">{headCell.label}</span>  
-              </TableSortLabel>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell padding="checkbox">
+              <Checkbox color="primary" inputProps={{ 'aria-label': 'select all desserts' }} />
             </TableCell>
-          ))}
-          <TableCell align="right">
-            <span className="headerText">Actions</span>
-          </TableCell>
-        </TableRow>
-      </TableHead>
+            {headCells.map((headCell) => (
+              <TableCell
+                key={headCell.id}
+                align={headCell.id === 'price' ? 'right' : 'left'}
+                style={{ paddingRight: headCell.id === 'price' ? '24px' : '12px' }}
+                sortDirection={orderBy === headCell.id ? order : false}
+                className="tableHeader"
+              >
+                <TableSortLabel
+                  active={orderBy === headCell.id}
+                  direction={orderBy === headCell.id ? order : 'asc'}
+                  onClick={() => handleRequestSort(headCell.id)}
+                >
+                  <span className="headerText">{headCell.label}</span>
+                </TableSortLabel>
+              </TableCell>
+            ))}
+            <TableCell align="right">
+              <span className="headerText">Actions</span>
+            </TableCell>
+          </TableRow>
+        </TableHead>
         <TableBody>
           {data.map((row, index) => (
             <TableRow key={index}>
@@ -89,7 +93,7 @@ const ProductTable = ({ data, handleEdit, handleDelete, handleRequestSort, order
                 <TableCell
                   key={headCell.id}
                   align={headCell.id === 'price' ? 'right' : 'left'}
-                  style={{ paddingRight: headCell.id === 'price' ? '24px' : '12px' }} // Sağa hizalama ve boşluk eklemesi
+                  style={{ paddingRight: headCell.id === 'price' ? '24px' : '12px' }}
                 >
                   {headCell.id === 'category'
                     ? capitalizeFirstLetter(row[headCell.id])

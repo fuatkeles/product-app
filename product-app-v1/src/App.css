@@ -27,6 +27,9 @@
   color: rgb(78, 59, 97);
   font-display: initial;
   gap: 20px;
+  background-color: rgb(247, 247, 247);
+  border-radius: 25px;
+  margin-top: 5px;
   
 }
 
@@ -35,7 +38,8 @@
   bottom: 0;
   width: 100%;
   gap: 20px;
-  background-color: rgb(234, 216, 252);
+  background-color: rgb(224, 193, 255);
+  border-radius: 25px;
 }
 
 .custom-sidebar .sidebarListItem:hover {
@@ -50,11 +54,18 @@
 
 .custom-sidebar .sidebarCopy {
   width: 100%;
-  padding: 16px;
-  color: rgb(78, 59, 97);
+  
+  color: rgb(253, 253, 253);
   font-display: initial;
   gap: 20px;
+
+  border-radius: 10px;
   
+}
+.socialLink .sidebarCopy {
+  margin-top: 5px; 
+  background-color: rgb(165, 75, 255); 
+  border-radius: 25px;
 }
 
 
@@ -73,9 +84,13 @@
   padding: 10px; 
 }
 
-.socialLink{
-  margin-top: 165%;
+.custom-sidebar .socialLink{
+  margin-top: 80%;
+  
+  border-radius: 10px;
+ 
 }
+
 
 @media (max-height: 720px) {
   .custom-sidebar {
@@ -85,6 +100,7 @@
     bottom: 0;
     width: 250px;
     overflow-y: auto;
+    height: 720px;
   }
 
   .custom-sidebar .sidebarList {
@@ -146,19 +162,19 @@
   
   .signupContainer .signupFormContainer .signupInput {
     margin-bottom: 10px;
-    width: 70%; 
+    width: 60%; 
     font-size: 14px; 
   }
   
   .signupContainer .signupFormContainer .signupButton {
     margin-top: 10px;
-    width: 70%; 
+    width: 60%; 
     background-color: rgb(186, 115, 252);
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
   
   .signupContainer .signupimageContainer {
-    width: 70%;
+    width: 80%;
     background-color: rgb(239, 227, 250);
     height: 94vh;
     border-radius: 10px;
@@ -168,7 +184,7 @@
   }
   
   .signupContainer .image {
-    width: 100%;
+    width: 120%;
   }
   
   .signupContainer .signupFormContainer h4 {
@@ -386,7 +402,11 @@
   padding: 10px;
 }
 
-/* Custom Sidebar Styles */
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+  /* Media Queries */
+
 
 /* Login Page Styles */
 @media (max-width: 767px) {
@@ -435,5 +455,57 @@
     width: 30%; 
     margin-bottom: 10px;
     
+  }
+  
+}
+@media (max-width: 767px) {
+  .modalBox {
+    width: 70%; 
+    padding: 20px;
+  }
+
+  .modalBox .modalButton {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
+/* Modal Styles */
+
+@media (max-width: 479px) {
+  .modalBox {
+    width: 85%; 
+    
+  }
+
+  .modalBox .modalButton {
+    width: 70%;
+    margin-left: 15%;
+  }
+}
+/* Sign Up Page Styles */
+@media (max-width: 767px) {
+  .signupContainer .signupimageContainer {
+    display: none; 
+  }
+}
+
+@media (min-width: 768px) {
+  .signupContainer .signupFormContainer {
+    width: 100%; 
+  }
+}
+
+/* Login Page Styles */
+
+@media (max-width: 767px) {
+  .Logincontainer .imageContainer {
+    display: none; 
+  }
+}
+
+
+@media (min-width: 768px) {
+  .Logincontainer .formContainer {
+    width: 100%;
   }
 }

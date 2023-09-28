@@ -94,22 +94,37 @@ const Products = () => {
     fetchCategoriesData();
   }, []);
   const handleRequestSort = (property) => {
-    const isAsc = orderBy === property && order === 'asc';
-    setOrder(isAsc ? 'desc' : 'asc');
-    setOrderBy(property); 
     const sortedData = [...data].sort((a, b) => {
+      let aValue = a[property];
+      let bValue = b[property];
+  
+      // Sadece "Price" ve "Stock" sütunlarında sayısal sıralama yap
+      if (property === 'price' || property === 'stock') {
+        aValue = parseFloat(aValue.replace(',', '.')) || 0;
+        bValue = parseFloat(bValue.replace(',', '.')) || 0;
+      } else {
+        // Diğer sütunlarda sadece metinsel sıralama yap
+        aValue = aValue.toString().toLowerCase();
+        bValue = bValue.toString().toLowerCase();
+      }
+  
       if (order === 'asc') {
-        if (a[property] < b[property]) return -1;
-        if (a[property] > b[property]) return 1;
+        if (aValue < bValue) return -1;
+        if (aValue > bValue) return 1;
         return 0;
       } else {
-        if (a[property] > b[property]) return -1;
-        if (a[property] < b[property]) return 1;
+        if (aValue > bValue) return -1;
+        if (aValue < bValue) return 1;
         return 0;
       }
     });
+  
     setData(sortedData);
+    setOrder(order === 'asc' ? 'desc' : 'asc');
+    setOrderBy(property);
   };
+  
+  
   const handleModalOpen = () => {
     setModalOpen(true);
     setIsEditing(false);
@@ -266,6 +281,7 @@ const handleUpdateProduct = async () => {
           setPrice={setPrice}
           date={date}
           setDate={setDate}
+          handleModalClose={handleModalClose}
         />
         <CircularProgress style={{ display: loading ? 'block' : 'none', margin: '20px auto' }} />       
       </div>

@@ -116,6 +116,7 @@ const Sidebar = () => {
                 fontSize: 20,
                 fontWeight: 'bold',
                 letterSpacing: 0,
+                className:'Linkedin'
               }}
             />
           </ListItem>
@@ -127,6 +128,7 @@ const Sidebar = () => {
                 fontSize: 20,
                 fontWeight: 'bold',
                 letterSpacing: 0,
+                className:'Github'
               }}
             />
           </ListItem>
