@@ -1,39 +1,79 @@
-/* App.css */
+
 
 /* Custom Sidebar Styles */
 .custom-sidebar {
-    
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 270px;
   
-  .custom-sidebar .sidebarList {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    width: 270px;
-    margin-top: 70%;
-    text-align: left;
-    
-  }
   
-  .custom-sidebar .sidebarListItem {
-    width: 100%;
-    padding: 16px;
-    
-    margin-left: 20%;
-    margin-top: 20%;
-    color: rgb(7, 7, 7);
-    
-    font-display:initial;
-  }
-  
-  .custom-sidebar .sidebarlogOutItem {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: rgb(186, 115, 252); 
-  }
+  z-index: 1000; 
+}
 
+.custom-sidebar .sidebarList {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  margin-top: 30%;
+}
+
+.custom-sidebar .sidebarListItem {
+  width: 100%;
+  padding: 16px;
+  color: rgb(78, 59, 97);
+  font-display: initial;
+  gap: 20px;
+  
+}
+
+.custom-sidebar .sidebarlogOutItem {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  gap: 20px;
+  background-color: rgb(234, 216, 252);
+}
+
+.custom-sidebar .sidebarListItem:hover {
+  background-color:rgb(222, 189, 255); 
+  border-radius: 10px;
+}
+
+.custom-sidebar .sidebarlogOutItem:hover {
+  background-color: rgb(222, 189, 255); 
+  border-radius: 10px;
+}
+
+.custom-sidebar .sidebarCopy {
+  width: 100%;
+  padding: 16px;
+  color: rgb(78, 59, 97);
+  font-display: initial;
+  gap: 20px;
+  
+}
+
+.socialLink{
+  margin-top: 165%;
+}
+.custom-sidebar .sidebarCopy:hover{
+  background-color:rgb(222, 189, 255); 
+  border-radius: 10px;
+}
+
+.toggle-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background-color: #fff; 
+  border: 1px solid #000; 
+  padding: 10px; 
+}
 /*----------------------------------------------------------------------------------------------------------*/
 
   /* Signup Page Styles */
@@ -98,14 +138,14 @@
 /*----------------------------------------------------------------------------------------------------------*/
 
   /* Login Page Styles */
-  .container {
+  .Logincontainer {
     display: flex;
     align-items: center;
     justify-content: center; 
     padding: 20px;
   }
   
-  .container .formContainer {
+  .Logincontainer .formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,26 +156,26 @@
     padding-left: 10%;
   }
   
-  .container .formContainer .inputField {
+  .Logincontainer .formContainer .inputField {
     margin-bottom: 20px;
     width: 70%; 
     font-size: 14px; 
   }
   
-  .container .formContainer .passwordField {
+  .Logincontainer .formContainer .passwordField {
     margin-bottom: 10px;
     width: 70%; 
     font-size: 14px;
   }
   
-  .container .formContainer .submitButton {
+  .Logincontainer .formContainer .submitButton {
     width: 70%; 
     margin-top: 20px;
     background-color: rgb(186, 115, 252);
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
   
-  .container .imageContainer {
+  .Logincontainer .imageContainer {
     width: 80%; 
     height: 94vh;
     background-color: rgb(239, 227, 250);
@@ -145,17 +185,17 @@
     justify-content: center;
   }
   
-  .container .image {
+  .Logincontainer .image {
     width: 100%;
   }
   
-  .container .formContainer h4 {
+  .Logincontainer .formContainer h4 {
     text-align: center; 
     margin-bottom: 20px;
     margin-right: 27%;
   }
   
-  .container .formContainer .signupText {
+  .Logincontainer .formContainer .signupText {
     text-align: center; 
     margin-top: 3%;
     margin-right: 27%;
@@ -164,48 +204,40 @@
 
 /*----------------------------------------------------------------------------------------------------------*/
  /* Brand Page Styles */
- .cardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
-  }
-  
-  .card {
-    flex: 0 0 calc(33.333% - 20px);
-    margin-bottom: 20px;
-    margin-right: 20px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    overflow: hidden;
-  }
-  
-  .card:last-child {
-    margin-right: 0;
-  }
-  
-  .cardImage img {
-    width: 100%;
-    max-height: 300px;
-    min-height: 300px;
-    object-fit: cover;
-  }
-  
-  .cardName {
-    text-align: center;
-    background-color: red;
-  }
-  
-/*----------------------------------------------------------------------------------------------------------*/
+.table-container{
+  width: 40%;
+  margin-top: 7%;
+  display: flex;
+  justify-content: center;
+  margin-left: 25%;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;  border-radius: 10px;
+}
+
+.table-container .MuiPaper-root {
+  width: 100%; 
+  overflow-x: auto; 
+}
+
+
+
+/*--------------------------------------------------------------------------------------------------------*/
   /* Product Page Styles */
 
-
-
-
 .container {
-    margin-left: 250px;
+    margin-left: 10.9%;
     padding: 20px;
     display: flex;
-    flex-direction: column; /* Sütun düzeninde (alt alta) göstermek için */
+    flex-direction: column; 
+    
+  }
+  .tableHeader {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .headerText {
+    font-weight: bold;
+    font-size: 20px;
   }
   
   .addProductButton {
@@ -217,40 +249,31 @@
   
   .tableContainer {
     display: block;
-    max-width: 70%; /* Tablonun maksimum genişliğini belirliyoruz */
-    overflow-x: auto; /* Yatay taşma olduğunda kaydırma çubuğu ekler */
-    margin-bottom: 20px; /* Altta bir boşluk bırakıyoruz */
+    max-width: 70%; 
+    overflow-x: auto; 
+    margin-bottom: 20px;
+    
   }
   
   .tableContainer table {
-    width: 100%; /* Tablonun yüzde 100 genişliğinde olmasını sağlar */
+    width: 100%; 
   }
   
   .tableContainer th, .tableContainer td {
-    white-space: nowrap; /* Hücre içeriğinin fazla uzun olması durumunda satır atlamasını engelliyoruz */
+    white-space: nowrap; 
     overflow: hidden;
-    text-overflow: ellipsis; /* Taşma durumunda üç nokta (...) gösteriyoruz */
+    text-overflow: ellipsis; 
   }
   
   .tableContainer tbody tr:nth-child(even) {
-    background-color: #f9f9f9; /* Çift satırlar için arka plan rengi */
+    background-color: #f9f9f9; 
   }
   
   .tableContainer tbody tr:nth-child(odd) {
-    background-color: #ffffff; /* Tek satırlar için arka plan rengi */
+    background-color: #ffffff; 
   }
 
-/* App.css */
 
-/* ... Diğer stiller ... */
-
-/* App.css */
-
-/* ... Diğer stiller ... */
-
-/* App.css */
-
-/* ... Diğer stiller ... */
 
 .modalBox {
     position: absolute;
@@ -261,24 +284,24 @@
     height: 60%;
     background-color: #ffffff;
     box-shadow: 24px;
-    padding: 24px; /* Padding'i artırdık */
+    padding: 24px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
   
   .modalBox .modalInput {
-    margin-top: 32px; /* Yukarı ayrık mesafe */
+    margin-top: 32px; 
   }
   
   .modalBox .modalInput input {
-    margin-bottom: 5px; /* Aşağı ayrık mesafe */
-    padding: 16px; /* İçerik ile input arasındaki mesafe */
+    margin-bottom: 5px; 
+    padding: 16px;
   }
   
-  /* Ekstra stil ayarları - gerekirse değiştirilebilir */
+  
   .modalBox .modalInput label {
-    margin-bottom: 10px; /* Label ile input arasındaki mesafe */
+    margin-bottom: 10px; 
   }
   
   .modalBox .modalButton {
@@ -290,3 +313,76 @@
   .modalBox h4{
     margin-top: 15px;
   }
+
+  /*----------------------------------------------------------------------------------------------------------*/
+
+  /* Home Page Styles */
+.graph{
+  display: flex;
+  margin-top: 5%;
+  margin-left: 16%;
+  gap: 10%;
+}
+
+.bar{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.pie{
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border-radius: 10px;
+  padding: 10px;
+}
+
+/* Custom Sidebar Styles */
+
+/* Login Page Styles */
+@media (max-width: 767px) {
+  .container .formContainer {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .container .formContainer .inputField,
+  .container .formContainer .passwordField,
+  .container .formContainer .submitButton {
+    width: 100%;
+  }
+}
+
+/* Brand Page Styles */
+@media (max-width: 767px) {
+  .table-container {
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+/* Product Page Styles */
+@media (max-width: 767px) {
+  .container {
+    margin-left: 0;
+  }
+
+  .tableContainer {
+    max-width: 100%;
+  }
+}
+
+/* Home Page Styles */
+@media (max-width: 767px) {
+  .graph {
+    flex-direction: column;
+    align-items: center; 
+    gap: 0;
+    margin-left: 0;
+  }
+
+  .graph .bar,
+  .graph .pie {
+    width: 30%; 
+    margin-bottom: 10px;
+    
+  }
+}
