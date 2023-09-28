@@ -53,7 +53,7 @@ const Brands = () => {
   return (
     <div>
       <Sidebar />
-      <Typography variant="h2" style={{ marginLeft: '15%', padding: '20px', marginTop:'3%' }}>
+      <Typography variant="h3" style={{ marginLeft: '15%', marginTop:'2.5%' }}>
         Retailers
       </Typography>
       <div className="table-container" >

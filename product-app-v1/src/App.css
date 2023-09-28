@@ -224,10 +224,11 @@
   /* Product Page Styles */
 
 .container {
-    margin-left: 24%;
-    padding: 20px;
+    margin-left: 25%;
+    
     display: flex;
     flex-direction: column; 
+    width: 90%;
     
   }
   .tableHeader {
@@ -281,13 +282,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
-    height: 60%;
+    height: 70%;
     background-color: #ffffff;
     box-shadow: 24px;
     padding: 24px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 10px;
   }
   
   .modalBox .modalInput {
