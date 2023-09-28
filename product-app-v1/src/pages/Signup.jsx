@@ -92,7 +92,7 @@ const Signup = () => {
           </Button>
         </form>
         <Typography variant="body2" className="loginRedirect" onClick={handleLoginRedirect}>
-          Already have an account? Login
+          <span></span>Already have an account? <span style={{ color: 'blue' }}>Login Here</span>
         </Typography>
       </div>
       <div className="signupimageContainer">

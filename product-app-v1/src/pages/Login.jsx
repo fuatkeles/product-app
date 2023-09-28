@@ -66,7 +66,7 @@ const Login = () => {
           </Button>
         </form>
         <Typography className='signupText' variant="body2" gutterBottom onClick={handleSignupClick}>
-          Don't have an account yet? Sign Up Now
+          Don't have an account yet? <span style={{ color: 'blue' }}>Sign Up Here Now</span>
         </Typography>
       </div>
       <div className="imageContainer">
