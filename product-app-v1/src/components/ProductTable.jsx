@@ -58,8 +58,8 @@ const ProductTable = ({ data, handleEdit, handleDelete, handleRequestSort, order
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell padding="checkbox">
-              <Checkbox color="primary" inputProps={{ 'aria-label': 'select all desserts' }} />
+            <TableCell >
+            
             </TableCell>
             {headCells.map((headCell) => (
               <TableCell
@@ -86,8 +86,8 @@ const ProductTable = ({ data, handleEdit, handleDelete, handleRequestSort, order
         <TableBody>
           {data.map((row, index) => (
             <TableRow key={index}>
-              <TableCell padding="checkbox">
-                <Checkbox color="primary" />
+              <TableCell >
+                
               </TableCell>
               {headCells.map((headCell) => (
                 <TableCell
