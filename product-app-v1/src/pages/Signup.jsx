@@ -88,7 +88,7 @@ const Signup = () => {
             className="signupInput"
           />
           <Button type="submit" variant="contained" color="primary" className="signupButton">
-            Signup
+            Sign Up
           </Button>
         </form>
         <Typography variant="body2" className="loginRedirect" onClick={handleLoginRedirect}>

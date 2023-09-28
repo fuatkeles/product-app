@@ -66,7 +66,7 @@ const Login = () => {
           </Button>
         </form>
         <Typography className='signupText' variant="body2" gutterBottom onClick={handleSignupClick}>
-          Don't have an account? Signup Now
+          Don't have an account yet? Sign Up Now
         </Typography>
       </div>
       <div className="imageContainer">
